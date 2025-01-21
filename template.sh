@@ -25,6 +25,7 @@ touch "$BASE_DIR/inventory.yml"
 touch "$BASE_DIR/playbook.yml"
 touch "$BASE_DIR/templates/config.j2"
 touch "$BASE_DIR/vars/main.yml"
+touch "$BASE_DIR/vars/secrets.yml"
 
 # Set appropriate permissions
 chown -R $SUDO_USER:$SUDO_USER "$BASE_DIR"
