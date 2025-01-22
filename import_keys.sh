@@ -1,11 +1,14 @@
 #!/bin/bash
 
-# Parse the IP address from inventory.yml
-IP_ADDRESS=$(grep -oP '(?<=ansible_host=)[0-9\.]+' inventory.yml)
+# Define the inventory file path
+INVENTORY_FILE="/opt/ansible-playbook/inventory.yml"
+
+# Parse the IP address from the inventory file
+IP_ADDRESS=$(grep -oP '(?<=ansible_host=)[0-9\.]+' "$INVENTORY_FILE")
 
 # Check if IP was found
 if [ -z "$IP_ADDRESS" ]; then
-  echo "Error: Unable to parse IP address from inventory.yml"
+  echo "Error: Unable to parse IP address from $INVENTORY_FILE"
   exit 1
 fi
 
