@@ -6,6 +6,16 @@ DIRECTORIES=(
   "$BASE_DIR/templates"
   "$BASE_DIR/vars"
   "$BASE_DIR/roles/my_custom_role"
+  "$BASE_DIR/roles/files"
+  
+  "$BASE_DIR/roles/roles"
+  "$BASE_DIR/roles/roles/files"
+  "$BASE_DIR/roles/roles/tasks"
+  "$BASE_DIR/roles/roles/templates"
+  "$BASE_DIR/roles/roles/vars"
+  "$BASE_DIR/roles/roles/handlers"
+  "$BASE_DIR/roles/roles/defaults"
+  "$BASE_DIR/roles/roles/meta"
 )
 
 # Ensure the script is run with sudo
@@ -25,8 +35,14 @@ touch "$BASE_DIR/inventory.yml"
 touch "$BASE_DIR/playbook.yml"
 touch "$BASE_DIR/templates/config.j2"
 touch "$BASE_DIR/vars/main.yml"
-touch "$BASE_DIR/vars/secrets.yml"
 
+touch "$BASE_DIR/roles/vars/secrets.yml"
+touch "$BASE_DIR/roles/files/main.yml"
+touch "$BASE_DIR/roles/roles/tasks/main.yml"
+touch "$BASE_DIR/roles/roles/templates/config.j2"
+
+
+  
 # Set appropriate permissions
 chown -R $SUDO_USER:$SUDO_USER "$BASE_DIR"
 chmod -R 755 "$BASE_DIR"
