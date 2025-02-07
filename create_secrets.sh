@@ -1,8 +1,5 @@
 #!/bin/bash
 
-cd /opt/basic_playbook
-
-
 # Define the group where secrets should be stored (Modify as needed)
 GROUP="all"  # Change this to webservers, dbservers, etc.
 SECRETS_FILE="group_vars/$GROUP/secrets.yml"
