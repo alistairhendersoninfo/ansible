@@ -43,6 +43,7 @@ touch "$BASE_DIR/roles/roles/tasks/main.yml"
 touch "$BASE_DIR/roles/roles/templates/config.j2"
 
 
+cp *.sh $BASE_DIR
   
 # Set appropriate permissions
 chown -R $SUDO_USER:$SUDO_USER "$BASE_DIR"
