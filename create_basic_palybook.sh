@@ -13,6 +13,12 @@ cat <<EOF > example_playbook.yml
   vars_files:
     - group_vars/all/secrets.yml
 
+############ This is if you want to have some generic tasks as opposed to roles   ###############
+  tasks:
+  - name: Disable UFW
+    import_tasks: tasks/ufw-disable.yml
+
+
 ############ This is if you want to use roles  ###############
   roles:
     - common
