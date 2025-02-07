@@ -56,5 +56,20 @@ cat <<EOF > example_playbook.yml
         msg: "Apache restart status: {{ restart_result }}"
 EOF
 
+
+
+
+# Define the playbook content
+cat <<EOF > playbook_skeleton.yml
+---
+- name:
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  vars_files:
+    - group_vars/all/secrets.yml
+EOF
+
 # Confirm script execution
 echo "Ansible playbook 'example_playbook.yml' has been created successfully."
