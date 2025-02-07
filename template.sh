@@ -5,21 +5,22 @@ BASE_DIR="/opt/base_playbook"
 DIRECTORIES=(
   "$BASE_DIR/templates"
   "$BASE_DIR/vars"
-  "$BASE_DIR/roles"
   "$BASE_DIR/files"
   "$BASE_DIR/tasks"
   "$BASE_DIR/my_custom_role"
   "$BASE_DIR/group_vars"
   "$BASE_DIR/group_vars/all"
-  "$BASE_DIR/roles/files"
-  "$BASE_DIR/roles/group_vars"
-  "$BASE_DIR/roles/group_vars/all"
-  "$BASE_DIR/roles/tasks"
-  "$BASE_DIR/roles/templates"
-  "$BASE_DIR/roles/vars"
-  "$BASE_DIR/roles/handlers"
-  "$BASE_DIR/roles/defaults"
-  "$BASE_DIR/roles/meta"
+  "$BASE_DIR/roles"
+  "$BASE_DIR/roles/ToCopy"
+  "$BASE_DIR/roles/ToCopy/files"
+  "$BASE_DIR/roles/ToCopy/group_vars/"
+  "$BASE_DIR/roles/ToCopy/group_vars/all"
+  "$BASE_DIR/roles/ToCopy/tasks"
+  "$BASE_DIR/roles/ToCopy/templates"
+  "$BASE_DIR/roles/ToCopy/vars"
+  "$BASE_DIR/roles/ToCopy/handlers"
+  "$BASE_DIR/roles/ToCopy/defaults"
+  "$BASE_DIR/roles/ToCopy/meta"
 )
 
 # Ensure the script is run with sudo
@@ -40,13 +41,22 @@ touch "$BASE_DIR/playbook.yml"
 touch "$BASE_DIR/templates/config.j2"
 touch "$BASE_DIR/vars/main.yml"
 
-touch "$BASE_DIR/roles/vars/secrets.yml"
-touch "$BASE_DIR/roles/files/main.yml"
-touch "$BASE_DIR/roles/roles/tasks/main.yml"
-touch "$BASE_DIR/roles/roles/templates/config.j2"
+touch "$BASE_DIR/roles/ToCopy/vars/main.yml"
+touch "$BASE_DIR/roles/ToCopy/tasks/main.yml"
+touch "$BASE_DIR/roles/ToCopy/handlers/main.yml"
+touch "$BASE_DIR/roles/ToCopy/templates/config.j2"
 
 
-cp *.sh $BASE_DIR
+touch "$BASE_DIR/roles/ToCopy/tasks/main.yml"
+touch "$BASE_DIR/roles/ToCopy/templates/config.j2"
+touch "$BASE_DIR/roles/ToCopy/vars/main.yml"
+touch "$BASE_DIR/roles/ToCopy/handlers/main.yml"
+touch "$BASE_DIR/roles/ToCopy/defaults/main.yml"
+touch "$BASE_DIR/roles/ToCopy/meta/main.yml"
+
+# Create a directory for the scripts
+mkdir $BASE_DIR/creationscripts
+cp *.sh $BASE_DIR/creationscripts
   
 # Set appropriate permissions
 chown -R $SUDO_USER:$SUDO_USER "$BASE_DIR"
