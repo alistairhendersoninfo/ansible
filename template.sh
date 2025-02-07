@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # Define the base directory in /opt
-BASE_DIR="/opt/ansible-playbook"
+BASE_DIR="/opt/base_playbook"
 DIRECTORIES=(
   "$BASE_DIR/templates"
   "$BASE_DIR/vars"
   "$BASE_DIR/roles/my_custom_role"
   "$BASE_DIR/roles/files"
-  
+  "$BASE_DIR/roles/group_vars"
+  "$BASE_DIR/roles/group_vars/all"
   "$BASE_DIR/roles/roles"
   "$BASE_DIR/roles/roles/files"
   "$BASE_DIR/roles/roles/tasks"
