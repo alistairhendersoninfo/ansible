@@ -57,6 +57,22 @@ touch "$BASE_DIR/roles/ToCopy/meta/main.yml"
 # Create a directory for the scripts
 mkdir $BASE_DIR/creationscripts
 cp *.sh $BASE_DIR/creationscripts
+
+
+##### Add the basic elements to the main.yml in tasks. This is what gets called from the main playbook.yml #########
+
+cat <<EOF > $BASE_DIR/roles/ToCopy/tasks/main.yml
+---
+- name: Include setup tasks
+  import_tasks: setup.yml
+
+- name: Include configuration tasks
+  import_tasks: configure.yml
+
+- name: Include deployment tasks
+  import_tasks: deploy.yml
+EOF
+
   
 # Set appropriate permissions
 chown -R $SUDO_USER:$SUDO_USER "$BASE_DIR"
