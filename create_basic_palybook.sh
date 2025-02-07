@@ -1,5 +1,6 @@
 #!/bin/bash
-cd /opt/basic_playbook
+BASE_DIR="/opt/base_playbook"
+cd $BASE_DIR
 
 # Define the playbook content
 cat <<EOF > example_playbook.yml
