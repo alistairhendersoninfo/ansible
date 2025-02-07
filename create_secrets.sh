@@ -1,11 +1,12 @@
 #!/bin/bash
+BASE_DIR="/opt/base_playbook"
 
 # Define the group where secrets should be stored (Modify as needed)
 GROUP="all"  # Change this to webservers, dbservers, etc.
 SECRETS_FILE="group_vars/$GROUP/secrets.yml"
 
 # Ensure the group_vars directory exists
-mkdir -p "group_vars/$GROUP"
+mkdir -p "$BASE_DIR/group_vars/$GROUP"
 
 # Prompt for the Ansible Vault password
 read -sp "Enter the password to encrypt the file: " VAULT_PASS
