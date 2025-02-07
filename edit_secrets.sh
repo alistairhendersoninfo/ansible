@@ -1,8 +1,9 @@
 #!/bin/bash
+BASE_DIR="/opt/base_playbook"
 
 # Define the group where secrets.yml is stored
 GROUP="all"  # Change this to webservers, dbservers, etc.
-SECRETS_FILE="group_vars/$GROUP/secrets.yml"
+SECRETS_FILE="$BASE_DIR/group_vars/$GROUP/secrets.yml"
 
 # Ensure the secrets file exists
 if [[ ! -f "$SECRETS_FILE" ]]; then
