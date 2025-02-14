@@ -10,7 +10,7 @@ SECRETS_FILE="group_vars/$GROUP/secrets.yml"
 # Ensure the group_vars directory exists
 mkdir -p "$BASE_DIR/group_vars/$GROUP"
 #echo "make $BASE_DIR/group_vars/$GROUP"
-#echo "the secrests files is $SECRETS_FILE"
+#echo "the secrests files is $SECRETS_FILE"	
 
 # Prompt for the Ansible Vault password
 read -sp "Enter the password to encrypt the file: " VAULT_PASS
